@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BookDoctor_appMvc.Models.Myappointments>
+
+@{
+    ViewBag.Title = "Myappointments";
+}
+
+
+<h2 align="Center">My appointments</h2>
+<div>
+    <a href="/Hospital/Index/@ViewBag.Userid" class="btn btn-primary btn-default">Book Appointment &raquo;</a>
+  <a  href="/Home/Index/" style="float: right;">Logout</a>
+</div>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Speciality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dateofappointment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timeslot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Booked_Date)
+        </th>
+        <th>
+            <p>Status</p>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speciality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateofappointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timeslot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booked_Date)
+            </td>
+            <td>
+                @{
+
+
+                    DateTime today = DateTime.Today;
+                }
+                @if ((item.Dateofappointment) < today)
+
+                {
+                    <p style="color:green">Completed</p>
+                }
+
+                else
+                {
+                    @Html.ActionLink("Cancel Appointment", "CancelAppointment", new { id = item.Id })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

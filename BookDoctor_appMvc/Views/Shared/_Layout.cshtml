@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Kiran Health Care</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Kiran Health Care", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Find Doctor", "AllDctor", "Hospital")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                </ul>
+                <div class="topnav-right">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>@Html.ActionLink("Signup", "Signup", "Login")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                        <li>
+                            <button type="button" name="btnLink" id="btnLink"><i class="fa fa-ambulance" style="font-size:48px;color:red"></i></button>
+
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color:green">&copy; @DateTime.Now.Year - Designed by Kiran</p>
+
+        </footer>
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/font-awesome")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<div class="modal fade" id="ModalPopUp" role="dialog">
+    <div class="modal-dialog err-pop" style="">
+        <div class="modal-content">
+            <div class="modal-header" id="em" style="color:red">
+                Emergency Contact Number
+
+                <button id="DivClose" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td id="td1" >
+                                Srinivasnagr - Bengaluru
+                            </td>
+                            <td> &nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                            <td id="td2" >
+                                080-22221111
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td id="td3">
+                                Malleshwaram - Bengaluru
+                            </td>
+                            <td></td>
+                            <td id="td4">
+                                080-22221113
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="td5">
+                                Jayanagar - Bengaluru
+                            </td>
+                            <td></td>
+                            <td id="td6">
+                                080-22221112
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="td7">
+                                Whitefield - Bengaluru
+                            </td>
+                            <td></td>
+                            <td id="td8">
+                                080-22221114
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="td9">
+                                Basavanagudi - Bengaluru
+
+                            </td>
+                            <td></td>
+                            <td id="td10">
+                                080-22221115
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    debugger;
+    $("#btnLink").click(function () {
+        $('#ModalPopUp').modal('show');
+    })
+</script>
+
+<style>
+    @@media screen and (min-width: 676px) {
+        .modal-dialog {
+            max-width: 450px; /* New width for default modal */
+        }
+    }
+    #td1,#td2,#td3,#td4,#td5,#td6,#td7,#td8,#td9,#td10,#em{
+        font-size: 20px;
+    }
+</style>
